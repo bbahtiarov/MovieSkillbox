@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/app_margin">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/poster_card_view"
+        android:layout_width="@dimen/poster_width"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/app_margin"
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        app:cardElevation="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark">
+
+            <ImageView
+                android:id="@+id/poster_imageView"
+                android:layout_width="@dimen/poster_width"
+                android:layout_height="@dimen/poster_height"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/title_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/small_margin"
+                android:maxLines="1"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/large_text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/poster_imageView"
+                app:layout_constraintTop_toBottomOf="@+id/poster_imageView"
+                tools:text="Title" />
+
+            <TextView
+                android:id="@+id/vote_average_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:maxLines="2"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/normal_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/poster_imageView"
+                app:layout_constraintTop_toBottomOf="@+id/title_textView"
+                tools:text="2017" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:src="@drawable/ic_star"
+                app:layout_constraintBottom_toBottomOf="@id/vote_average_textView"
+                app:layout_constraintStart_toEndOf="@id/vote_average_textView"
+                app:layout_constraintTop_toTopOf="@+id/vote_average_textView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
