@@ -7,19 +7,7 @@
     android:background="@color/bgColor"
     tools:context=".presentation.detail.DetailMovieFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/small_margin"
-        android:text="@string/stringg"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/normal_text_size"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
-
-    <!--<ScrollView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -53,11 +41,11 @@
                 tools:text="Title name" />
 
             <TextView
-                android:id="@+id/rating"
+                android:id="@+id/vote_average"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/app_margin"
-                android:text="@string/rating"
+                android:text="@string/vote_average"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/normal_text_size"
                 android:textStyle="bold"
@@ -65,40 +53,65 @@
                 app:layout_constraintTop_toBottomOf="@+id/movie_title_textView" />
 
             <TextView
-                android:id="@+id/rating_textView"
+                android:id="@+id/vote_average_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/small_margin"
                 android:layout_marginTop="@dimen/app_margin"
                 android:textColor="@color/colorWhite"
-                app:layout_constraintBaseline_toBaselineOf="@+id/rating"
-                app:layout_constraintStart_toEndOf="@+id/rating"
-                app:layout_constraintTop_toBottomOf="@+id/rating"
+                app:layout_constraintBaseline_toBaselineOf="@+id/vote_average"
+                app:layout_constraintStart_toEndOf="@+id/vote_average"
+                app:layout_constraintTop_toBottomOf="@+id/vote_average"
                 tools:text="222" />
 
             <TextView
-                android:id="@+id/runtime"
+                android:id="@+id/release_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/app_margin"
                 android:layout_marginTop="@dimen/small_margin"
-                android:text="@string/runtime"
+                android:text="@string/release_date"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/normal_text_size"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rating" />
+                app:layout_constraintTop_toBottomOf="@+id/vote_average" />
 
             <TextView
-                android:id="@+id/runtime_textView"
+                android:id="@+id/release_date_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/small_margin"
                 android:layout_marginTop="@dimen/app_margin"
                 android:textColor="@color/colorWhite"
-                app:layout_constraintBaseline_toBaselineOf="@+id/runtime"
-                app:layout_constraintStart_toEndOf="@+id/runtime"
-                app:layout_constraintTop_toBottomOf="@+id/runtime"
+                app:layout_constraintBaseline_toBaselineOf="@+id/release_date"
+                app:layout_constraintStart_toEndOf="@+id/release_date"
+                app:layout_constraintTop_toBottomOf="@+id/release_date"
+                tools:text="222" />
+
+            <TextView
+                android:id="@+id/original_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/app_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:text="@string/original_language"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/normal_text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/release_date" />
+
+            <TextView
+                android:id="@+id/original_language_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/app_margin"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintBaseline_toBaselineOf="@+id/original_language"
+                app:layout_constraintStart_toEndOf="@+id/original_language"
+                app:layout_constraintTop_toBottomOf="@+id/original_language"
                 tools:text="222" />
 
             <TextView
@@ -112,20 +125,23 @@
                 android:textSize="@dimen/normal_text_size"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/runtime" />
+                app:layout_constraintTop_toBottomOf="@+id/original_language" />
 
             <TextView
                 android:id="@+id/overview_textView"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/app_margin"
-                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/app_margin"
+                android:layout_marginBottom="@dimen/app_margin"
                 android:textColor="@color/colorWhite"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/overview"
                 tools:text="222" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>-->
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

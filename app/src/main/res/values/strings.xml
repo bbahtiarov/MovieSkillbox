@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MovieSlillbox</string>
-    <string name="rating">Rating:</string>
-    <string name="runtime">Runtime:</string>
+    <string name="vote_average">Rating:</string>
+    <string name="release_date">Release date:</string>
     <string name="overview">Overview:</string>
-    <string name="stringg">Так и не понял как передать в детатльный фрагмент данные :(</string>
+    <string name="original_language">Original language:</string>
 </resources>
