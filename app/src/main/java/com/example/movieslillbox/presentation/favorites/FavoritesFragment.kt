@@ -1,42 +1,44 @@
-package com.example.movieslillbox.presentation.main
+package com.example.movieslillbox.presentation.favorites
 
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieslillbox.R
+import com.example.movieslillbox.presentation.favorites.recyclerVIew.FavoriteAdapter
 import com.example.movieslillbox.presentation.main.recyclerView.GridAutofitLayoutManager
 import com.example.movieslillbox.presentation.main.recyclerView.MovieAdapter
 import com.example.movieslillbox.utils.APP_ACTIVITY
+import kotlinx.android.synthetic.main.favorites_fragment.*
 import kotlinx.android.synthetic.main.main_fragment.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
-class MainFragment : Fragment(R.layout.main_fragment) {
+class FavoritesFragment : Fragment(R.layout.favorites_fragment) {
+
     companion object {
-        fun newInstance() = MainFragment()
+        fun newInstance() = FavoritesFragment()
     }
 
-    //private lateinit var viewModel: MainViewModel
-    private lateinit var viewModel: MainViewModel
-
+    private lateinit var viewModel: FavoritesViewModel
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(FavoritesViewModel::class.java)
         initRecyclerView()
     }
 
     private fun initRecyclerView() {
-        val columnWidth = APP_ACTIVITY.resources.getDimension(R.dimen.poster_width).toInt()
-        val recyclerList = main_recycler_view.apply {
+        val recyclerList = favorite_recyclerView.apply {
             setHasFixedSize(true)
             layoutManager =
-                GridAutofitLayoutManager(APP_ACTIVITY, columnWidth)
+                LinearLayoutManager(APP_ACTIVITY)
         }
         viewModel.movieListData.observe(viewLifecycleOwner, Observer {
-            recyclerList.adapter = MovieAdapter(it)
+            recyclerList.adapter = FavoriteAdapter(it)
         })
     }
 

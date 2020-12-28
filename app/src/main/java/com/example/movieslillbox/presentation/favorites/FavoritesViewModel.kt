@@ -1,11 +1,10 @@
-package com.example.movieslillbox.presentation.main
+package com.example.movieslillbox.presentation.favorites
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.movieslillbox.data.api.MovieRetrofitService
 import com.example.movieslillbox.data.models.Movie
-import com.example.movieslillbox.data.room.MovieRoomRepository
 import com.example.movieslillbox.utils.BASE_URL
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
@@ -13,8 +12,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MainViewModel : ViewModel() {
-
+class FavoritesViewModel : ViewModel() {
     val movieListData: MutableLiveData<List<Movie>> = MutableLiveData()
 
     init {
@@ -31,5 +29,4 @@ class MainViewModel : ViewModel() {
             }
         }
     }
-
 }

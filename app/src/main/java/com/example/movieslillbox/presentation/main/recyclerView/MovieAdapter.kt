@@ -1,5 +1,6 @@
 package com.example.movieslillbox.presentation.main.recyclerView
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +16,9 @@ import com.example.movieslillbox.utils.downloadAndSetImage
 import com.example.movieslillbox.utils.replaceToFragment
 
 
-class MovieAdapter(private val movieList: List<Movie>) :
+class MovieAdapter(
+    private var movieList: List<Movie>
+) :
     RecyclerView.Adapter<MovieAdapter.MovieHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieHolder {
@@ -30,27 +33,26 @@ class MovieAdapter(private val movieList: List<Movie>) :
         holder.bindData(movieList, position)
     }
 
-    class MovieHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class MovieHolder(view: View) : RecyclerView.ViewHolder(view) {
+
         private val title: TextView = itemView.findViewById(R.id.title_textView)
         private val voteAvg: TextView = itemView.findViewById(R.id.vote_average_textView)
         private val poster: ImageView = itemView.findViewById(R.id.poster_imageView)
+        //private val likeImage: ImageView = itemView.findViewById(R.id.like_imageView)
 
+        @SuppressLint("UseCompatLoadingForDrawables")
         fun bindData(list: List<Movie>, position: Int) {
             val moviePosterURL = POSTER_BASE_URL + list[position].posterPath
             title.text = list[position].title
             voteAvg.text = list[position].voteAverage
             poster.downloadAndSetImage(moviePosterURL)
+
             itemView.setOnClickListener {
                 val bundle = Bundle()
-                bundle.putString("title", list[position].title)
-                bundle.putString("releaseDate", list[position].releaseDate)
-                bundle.putString("originalLanguage", list[position].originalLanguage)
-                bundle.putString("overview", list[position].overview)
-                bundle.putString("voteAverage", list[position].voteAverage)
+                bundle.putSerializable("data", list[position])
                 bundle.putString("poster", moviePosterURL)
                 val detailMovieFragment = DetailMovieFragment()
                 detailMovieFragment.arguments = bundle
-
                 replaceToFragment(detailMovieFragment)
             }
         }
